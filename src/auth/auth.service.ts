@@ -11,7 +11,6 @@ import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from 'src/users/dtos/create-user.dto';
 import { AuthDto } from './dtos/auth.dto';
-import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
@@ -19,7 +18,6 @@ export class AuthService {
     @Inject(forwardRef(() => UsersService))
     private userService: UsersService,
     private jwtService: JwtService,
-    private configService: ConfigService,
   ) {}
 
   //Validate user

@@ -1,12 +1,10 @@
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { Public } from './decorators/public.decorator';
 import { CreateUserDto } from 'src/users/dtos/create-user.dto';
 import { AuthDto } from './dtos/auth.dto';
 import { RefreshTokenGuard } from './guard/refreshToken.guard';
 import { Request } from 'express';
 
-@Public()
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}

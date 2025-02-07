@@ -6,10 +6,6 @@ import { TweetModule } from './tweet/tweet.module';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProfileModule } from './profile/profile.module';
-import { ConfigModule } from '@nestjs/config';
-import { APP_GUARD } from '@nestjs/core';
-import { JwtGuard } from './auth/guard/jwt.guard';
-import { User } from './users/user.entity';
 
 @Module({
   imports: [
@@ -32,9 +28,9 @@ import { User } from './users/user.entity';
       }),
     }),
     ProfileModule,
-    ConfigModule.forRoot({ isGlobal: true }),
+    // ConfigModule.forRoot({ isGlobal: true }),
   ],
   controllers: [AppController],
-  providers: [AppService, { provide: APP_GUARD, useClass: JwtGuard }],
+  providers: [AppService],
 })
 export class AppModule {}
